@@ -11,11 +11,80 @@ const rl = readline.createInterface({
 });
 
 
-const pigLatin = (word) => {
+let pigLatin = (word) => {
+  word = word.toLowerCase().trim()
+  let aIdx = word.indexOf("a");
+  let eIdx = word.indexOf("e");
+  let iIdx = word.indexOf("i");
+  let oIdx = word.indexOf("o");
+  let uIdx = word.indexOf("u");
+  let len = word.length;
+  let answer = -1;
+ 
+  if (aIdx == -1) {
+      // do nothing
+  } 
+  else  if (aIdx != -1 && answer == -1) {
+      answer = aIdx
+  }
+  else if (aIdx != -1 && answer >= aIdx ) {
+      answer = aIdx
+  }
+ 
+  if (eIdx == -1) {
+      // do nothing
+  } 
+  else  if (eIdx != -1 && answer == -1) {
+      answer = eIdx
+  }
+  else if (aIdx != -1 && answer >= eIdx ) {
+      answer = eIdx
+  }
+  
+  if (iIdx == -1) {
+      // do nothing
+  } 
+  else  if (iIdx != -1 && answer == -1) {
+      answer = iIdx
+  }
+  else if (iIdx != -1 && answer >= iIdx ) {
+      answer = iIdx
+  }
 
-  // Your code here
+  if (oIdx == -1) {
+      // do nothing
+  } 
+  else  if (oIdx != -1 && answer == -1) {
+      answer = oIdx
+  }
+  else if (oIdx != -1 && answer >= oIdx ) {
+      answer = oIdx
+  }
 
-}
+  if (uIdx == -1) {
+      // do nothing
+  } 
+  else  if (uIdx != -1 && answer == -1) {
+      answer = uIdx
+  }
+  else if (uIdx != -1 && answer >= uIdx ) {
+      answer = uIdx
+  }
+  // (IF) is Aidx -1? if answer is yes, do nothing.
+  // (else if) if A  is not -1 and the answer is -1, then Aidx is better than answer.
+  // replace answer with aIdx.
+  // (else if) if aIdx is not -1, and answer is bigger than aIdx, then aIdx is also better.
+  // replace answer with aIdx.
+  
+  if (answer === 0) {return word + "yay"}
+    else if (answer != 0) {return word.slice(answer, word.length) + word.slice(0, answer) + "ay" }
+
+
+}     
+
+let word = "meat"
+let newNum = pigLatin(word)
+console.log('the position of the first vowel is,' ,newNum)
 
 // the first function called in the program to get an input from the user
 // to run the function use the command: node main.js
